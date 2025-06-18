@@ -9,18 +9,14 @@ CREATE TABLE IF NOT EXISTS Rol (
 );
 
 CREATE TABLE IF NOT EXISTS Usuario (
-  rut_user INTEGER PRIMARY KEY,
+  rut_user VARCHAR(10) PRIMARY KEY,
   correo VARCHAR(30) NOT NULL UNIQUE,
   clave  VARCHAR(30) NOT NULL,
   id_rol INTEGER NOT NULL,
   nombre VARCHAR(30) NOT NULL,
-  /*rut_adminitstrador INTEGER,*/
+  rut_administrador VARCHAR(10),
   CONSTRAINT fk_Usuario_Rol FOREIGN KEY(id_rol) REFERENCES Rol(id_rol)
 );
 
-/* Revisar Relacion Actualizar para determinar que esto esta correcto */
-/*
 ALTER TABLE Usuario 
-ADD CONSTRAINT fk_Usuario_Usuario 
-FOREIGN KEY (rut_administrador) REFERENCES Usuario(rut_user); 
-*/
+ADD FOREIGN KEY (rut_administrador) REFERENCES Usuario(rut_user); 
