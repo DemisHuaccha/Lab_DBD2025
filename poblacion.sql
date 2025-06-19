@@ -52,14 +52,14 @@ VALUES
 -- Tabla direcciones acorde a usuarios--
 INSERT INTO Direccion(numero, calle, region, rut_user) 
 VALUES
-	(123, 'Avenida Siempre Viva', 'Metropolitana', '12.345.678-1'),
-	(456, 'Calle Los Pinos', 'Metropolitana', '12.345.678-2'),
-	(789, 'Pasaje El Roble', 'Metropolitana', '12.345.678-3'),
-	(321, 'Camino Real', 'Araucanía', '12.345.678-4'),
-	(654, 'Callejón Las Flores', 'Maule', '12.345.678-5'),
-	(987, 'Avenida Los Alerces', 'Ñuble', '12.345.678-6'),
-	(135, 'Calle El Sauce', 'Coquimbo', '12.345.678-7'),
-	(246, 'Pasaje Los Cipreses', 'O’Higgins', '12.345.678-8'),
-	(579, 'Camino del Sol', 'Atacama', '12.345.678-9'),
-	(864, 'Calle del Lago', 'Los Lagos', '15.948.263-1')
+	(101, 'Calle1', 'Región Metropolitana', '12.345.678-1'),
+	(102, 'Calle2', 'Valparaíso', '12.345.678-2'),
+	(103, 'Calle3', 'Biobío', '12.345.678-3'),
+	(104, 'Calle4', 'Araucanía', '12.345.678-4'),
+	(105, 'Calle5', 'Maule', '12.345.678-5'),
+	(106, 'Calle6', 'Ñuble', '12.345.678-6'),
+	(107, 'Calle7', 'Coquimbo', '12.345.678-7'),
+	(108, 'Calle8', 'O’Higgins', '12.345.678-8'),
+	(109, 'Calle9', 'Atacama', '12.345.678-9'),
+	(110, 'Calle10', 'Los Lagos', '15.948.263-1')
 ;
