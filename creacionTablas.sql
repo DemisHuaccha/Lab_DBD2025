@@ -29,3 +29,37 @@ CREATE TABLE IF NOT EXISTS Boleta(
 	CONSTRAINT fk_Boleta_Usuario FOREIGN KEY (rut_user) REFERENCES Usuario(rut_user),
 	FOREIGN KEY (id_metodo) REFERENCES Metodo_pago(id_metodo)
 );
+
+-- La creación de estas tablas se basa en el MR
+CREATE TABLE IF NOT EXISTS Producto (
+  id_producto SERIAL PRIMARY KEY,
+  nombre_producto VARCHAR(50) NOT NULL,
+  descripcion VARCHAR(255),
+  precio_producto INT CHECK (precio_producto >= 0),
+  stock INT CHECK (stock >= 0),
+  cantidad_de_ventas INT DEFAULT 0 CHECK (cantidad_de_ventas >= 0),
+  tipo_prod INT,
+  imagen VARCHAR(255),
+  rut_user VARCHAR(15),
+  FOREIGN KEY (rut_user) REFERENCES Usuario(rut_user)
+);
+
+CREATE TABLE IF NOT EXISTS Valoracion (
+  id_valoracion SERIAL PRIMARY KEY,
+  valoracion INT CHECK (valoracion BETWEEN 1 AND 5),
+  comentario VARCHAR(255),
+  id_producto INT,
+  rut_user VARCHAR(15),
+  FOREIGN KEY (id_producto) REFERENCES Producto(id_producto),
+  FOREIGN KEY (rut_user) REFERENCES Usuario(rut_user)
+);
+
+-- Aquí añadí una FK con producto pero esto NO ESTÁ EN EL MR!!! Es que nadie respondió mi duda en el documento
+CREATE TABLE IF NOT EXISTS Carrito (
+  id_carrito SERIAL PRIMARY KEY,
+  cantidad INT CHECK (cantidad > 0),
+  id_producto INT,
+  rut_user VARCHAR(15),
+  FOREIGN KEY (id_producto) REFERENCES Producto(id_producto),
+  FOREIGN KEY (rut_user) REFERENCES Usuario(rut_user)
+);
