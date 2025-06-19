@@ -93,3 +93,31 @@ CREATE TABLE IF NOT EXISTS Direccion (
 --FALTA FK DE TIENDA 
 );
 
+-- Tabla Tienda
+CREATE TABLE Tienda (
+  id_tienda SERIAL PRIMARY KEY,
+  nombre VARCHAR(30) NOT NULL,
+  rut_user VARCHAR(15) NOT NULL,
+  FOREIGN KEY (rut_user) REFERENCES Usuario(rut_user)
+
+);
+
+-- Tabla Producto_Tienda 
+CREATE TABLE Producto_Tienda (
+    id_producto INTEGER NOT NULL,
+    id_tienda INTEGER NOT NULL,
+    cantidad INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (id_producto, id_tienda),
+    FOREIGN KEY (id_producto) REFERENCES Producto(id_producto),
+    FOREIGN KEY (id_tienda) REFERENCES Tienda(id_tienda)
+);
+
+-- Tabla ListaDeseados
+CREATE TABLE ListaDeseados (
+    id_listaDeseados SERIAL PRIMARY KEY,
+    id_producto INTEGER NOT NULL,
+    rut_user VARCHAR(15) NOT NULL,
+    cantidad INTEGER NOT NULL DEFAULT 1,
+    FOREIGN KEY (id_producto) REFERENCES Producto(id_producto),
+    FOREIGN KEY (rut_user) REFERENCES Usuario(rut_user)
+);
