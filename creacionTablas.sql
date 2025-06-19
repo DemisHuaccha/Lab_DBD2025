@@ -63,3 +63,21 @@ CREATE TABLE IF NOT EXISTS Carrito (
   FOREIGN KEY (id_producto) REFERENCES Producto(id_producto),
   FOREIGN KEY (rut_user) REFERENCES Usuario(rut_user)
 );
+
+-- Tabla Cartas
+CREATE TABLE IF NOT EXISTS Cartas (
+    id_cartas SERIAL PRIMARY KEY,
+    Año INTEGER,
+    Estado VARCHAR(30),
+    Rareza VARCHAR(20),
+    id_producto INTEGER,
+    FOREIGN KEY (id_producto) REFERENCES Producto(id_producto)
+);
+
+-- Tabla Juegos_de_Mesa
+CREATE TABLE IF NOT EXISTS Juegos_de_Mesa (
+    id_juegosM SERIAL PRIMARY KEY,
+    Tipo VARCHAR(30),
+    id_producto INTEGER,
+    FOREIGN KEY (id_producto) REFERENCES Producto(id_producto)
+);
