@@ -81,3 +81,15 @@ CREATE TABLE IF NOT EXISTS Juegos_de_Mesa (
     id_producto INTEGER,
     FOREIGN KEY (id_producto) REFERENCES Producto(id_producto)
 );
+
+-- Tabla Direccion
+CREATE TABLE IF NOT EXISTS Direccion (
+    id_direccion SERIAL PRIMARY KEY,
+    numero INTEGER,
+    calle VARCHAR(50),
+    region VARCHAR(50),
+    rut_user VARCHAR(15),
+    FOREIGN KEY (rut_user) REFERENCES Usuario(rut_user)
+--FALTA FK DE TIENDA 
+);
+
