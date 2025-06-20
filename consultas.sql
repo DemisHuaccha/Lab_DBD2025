@@ -1,4 +1,8 @@
 /*Consulta 1*/
+SELECT setval(
+  'public.carrito_id_carrito_seq',
+  (SELECT MAX(id_carrito) FROM Carrito)
+);
 -- Agregar una carta al carrito
 INSERT INTO Carrito(cantidad, id_producto, rut_user)
 VALUES (1, 00105, '12.345.678-1'); 
