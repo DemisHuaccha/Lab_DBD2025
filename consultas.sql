@@ -16,6 +16,10 @@ WHERE id_producto = 00105 AND rut_user = '12.345.678-1';
 /*Consulta 4*/
 
 /*Consulta 5*/
+SELECT p.id_producto, p.nombre_producto, p.descripcion, p.precio_producto, d.region, t.nombre AS tienda
+FROM Producto p JOIN Cartas c ON p.id_producto = c.id_producto JOIN Producto_Tienda pt ON p.id_producto = pt.id_producto 
+JOIN Tienda t ON pt.id_tienda = t.id_tienda JOIN Usuario u ON t.rut_user = u.rut_user JOIN Direccion d ON u.rut_user = d.rut_user
+WHERE d.region = 'OHiggins';
 
 /*Consulta 6*/
 
