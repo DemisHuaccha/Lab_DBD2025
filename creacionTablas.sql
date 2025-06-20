@@ -101,8 +101,8 @@ CREATE TABLE IF NOT EXISTS Direccion (
     rut_user VARCHAR(15),
 	id_tienda INTEGER,
     FOREIGN KEY (rut_user) REFERENCES Usuario(rut_user),
-	FOREIGN KEY (id_tienda) REFERENCES Tienda(id_tienda)
---FALTA FK DE TIENDA 
+    FOREIGN KEY (id_tienda) REFERENCES Tienda(id_tienda)
+
 );
 
 -- Tabla Producto_Tienda 
