@@ -15,7 +15,21 @@ VALUES (1, 00106, '12.345.678-1');
 -- Eliminar una carta de carrito
 DELETE FROM Carrito
 WHERE id_producto = 00105 AND rut_user = '12.345.678-1';
+
 /*Consulta 3*/
+SELECT p.nombre_producto, p.precio_producto, c.cantidad
+FROM Carrito c
+JOIN Producto p ON c.id_producto = p.id_producto
+JOIN Cartas ca ON p.id_producto = ca.id_producto
+WHERE c.rut_user = '12.345.678-1'
+
+UNION
+
+SELECT p.nombre_producto, p.precio_producto, c.cantidad
+FROM Carrito c
+JOIN Producto p ON c.id_producto = p.id_producto
+JOIN Juegos_de_Mesa jm ON p.id_producto = jm.id_producto
+WHERE c.rut_user = '12.345.678-1';
 
 /*Consulta 4*/
 
