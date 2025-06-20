@@ -32,6 +32,10 @@ JOIN Juegos_de_Mesa jm ON p.id_producto = jm.id_producto
 WHERE c.rut_user = '12.345.678-1';
 
 /*Consulta 4*/
+SELECT SUM(c.cantidad * p.precio_producto) AS total_a_pagar
+FROM Carrito c
+JOIN Producto p ON c.id_producto = p.id_producto
+WHERE c.rut_user = '12.345.678-1';
 
 /*Consulta 5*/
 SELECT p.id_producto, p.nombre_producto, p.descripcion, p.precio_producto, d.region, t.nombre AS tienda
