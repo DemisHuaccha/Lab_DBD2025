@@ -30,7 +30,6 @@ CREATE TABLE IF NOT EXISTS Boleta(
 	FOREIGN KEY (id_metodo) REFERENCES Metodo_pago(id_metodo)
 );
 
--- La creación de estas tablas se basa en el MR
 CREATE TABLE IF NOT EXISTS Producto (
   id_producto SERIAL PRIMARY KEY,
   nombre_producto VARCHAR(50) NOT NULL,
@@ -54,7 +53,6 @@ CREATE TABLE IF NOT EXISTS Valoracion (
   FOREIGN KEY (rut_user) REFERENCES Usuario(rut_user)
 );
 
--- Aquí añadí una FK con producto pero esto NO ESTÁ EN EL MR!!! Es que nadie respondió mi duda en el documento
 CREATE TABLE IF NOT EXISTS Carrito (
   id_carrito SERIAL PRIMARY KEY,
   cantidad INT CHECK (cantidad > 0),
