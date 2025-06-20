@@ -43,17 +43,13 @@ WHERE c.rut_user = '12.345.678-1';
 -- Mostrar todos los juegos de mesa y cartas que se vendan en una ubicacion geografica especifica.
 SELECT p.id_producto, p.nombre_producto,
 	CASE 
-	WHEN jm.id_juegosM IS NOT NULL THEN jm.Tipo
-	ELSE c.Rareza
-	END AS sub_tipo,
-	CASE 
 	WHEN jm.id_juegosM IS NOT NULL THEN 'Juego de Mesa'
 	ELSE 'Carta'
 	END AS categoria,
 	t.nombre    AS tienda, d.calle, d.region
 	FROM Producto p LEFT JOIN Juegos_de_Mesa jm ON p.id_producto = jm.id_producto LEFT JOIN Cartas c ON p.id_producto = c.id_producto
 	JOIN Producto_Tienda pt ON p.id_producto = pt.id_producto JOIN Tienda t ON pt.id_tienda = t.id_tienda JOIN Direccion d ON t.id_tienda = d.id_tienda 
-	WHERE d.region = 'OHiggins' AND (jm.id_juegosM IS NOT NULL OR c.id_cartas IS NOT NULL);
+	WHERE d.region = 'Los Lagos' AND (jm.id_juegosM IS NOT NULL OR c.id_cartas IS NOT NULL);
 
 /*Consulta 6*/
 -- Mostrar ranking de los productos con mas ventas.
