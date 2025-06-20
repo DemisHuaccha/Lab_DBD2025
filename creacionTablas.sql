@@ -24,7 +24,7 @@ ADD FOREIGN KEY (rut_user2) REFERENCES Usuario(rut_user);
 CREATE TABLE IF NOT EXISTS Boleta( 
 	numero_boleta SERIAL PRIMARY KEY,
 	fecha DATE NOT NULL,
-	id_metodo SERIAL,
+	id_metodo INTEGER,
 	rut_user VARCHAR(15),
 	CONSTRAINT fk_Boleta_Usuario FOREIGN KEY (rut_user) REFERENCES Usuario(rut_user),
 	FOREIGN KEY (id_metodo) REFERENCES Metodo_pago(id_metodo)
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS Carrito (
 -- Tabla Cartas
 CREATE TABLE IF NOT EXISTS Cartas (
     id_cartas SERIAL PRIMARY KEY,
-    Año INTEGER,
+    Año DATE,
     Estado VARCHAR(30),
     Rareza VARCHAR(20),
     id_producto INTEGER,
@@ -82,16 +82,6 @@ CREATE TABLE IF NOT EXISTS Juegos_de_Mesa (
     FOREIGN KEY (id_producto) REFERENCES Producto(id_producto)
 );
 
--- Tabla Direccion
-CREATE TABLE IF NOT EXISTS Direccion (
-    id_direccion SERIAL PRIMARY KEY,
-    numero INTEGER,
-    calle VARCHAR(50),
-    region VARCHAR(50),
-    rut_user VARCHAR(15),
-    FOREIGN KEY (rut_user) REFERENCES Usuario(rut_user)
---FALTA FK DE TIENDA 
-);
 
 -- Tabla Tienda
 CREATE TABLE Tienda (
@@ -100,6 +90,19 @@ CREATE TABLE Tienda (
   rut_user VARCHAR(15) NOT NULL,
   FOREIGN KEY (rut_user) REFERENCES Usuario(rut_user)
 
+);
+
+-- Tabla Direccion
+CREATE TABLE IF NOT EXISTS Direccion (
+    id_direccion SERIAL PRIMARY KEY,
+    numero INTEGER,
+    calle VARCHAR(50),
+    region VARCHAR(50),
+    rut_user VARCHAR(15),
+	id_tienda INTEGER,
+    FOREIGN KEY (rut_user) REFERENCES Usuario(rut_user),
+	FOREIGN KEY (id_tienda) REFERENCES Tienda(id_tienda)
+--FALTA FK DE TIENDA 
 );
 
 -- Tabla Producto_Tienda 
