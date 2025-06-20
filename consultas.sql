@@ -26,5 +26,18 @@ JOIN Tienda t ON pt.id_tienda = t.id_tienda JOIN Usuario u ON t.rut_user = u.rut
 WHERE d.region = 'OHiggins';
 
 /*Consulta 6*/
-
+SELECT 
+	p.id_producto,
+	p.nombre_producto,
+	p.cantidad_de_ventas,
+	p.precio_producto,
+	p.tipo_prod,
+	CASE
+		WHEN p.tipo_prod = 1 THEN 'Juego de mesa'
+		WHEN p.tipo_prod = 0 THEN 'Carta'
+		ELSE 'Otro'
+	END AS tipo_producto_desc
+FROM Producto p
+ORDER BY p.cantidad_de_ventas DESC
+LIMIT 10;
 /*Consulta 7*/
