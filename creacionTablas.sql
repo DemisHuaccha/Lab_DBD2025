@@ -50,8 +50,10 @@ CREATE TABLE IF NOT EXISTS Valoracion (
   id_producto INT,
   rut_user VARCHAR(15),
   FOREIGN KEY (id_producto) REFERENCES Producto(id_producto),
-  FOREIGN KEY (rut_user) REFERENCES Usuario(rut_user)
+  FOREIGN KEY (rut_user) REFERENCES Usuario(rut_user),
+  UNIQUE (id_producto, rut_user) 
 );
+
 
 CREATE TABLE IF NOT EXISTS Carrito (
   id_carrito SERIAL PRIMARY KEY,
