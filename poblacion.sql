@@ -149,16 +149,16 @@ VALUES
 ;
 
 -- Tabla direcciones acorde a usuarios--
-INSERT INTO Direccion(numero, calle, region, rut_user) 
+INSERT INTO Direccion(numero, calle, region, rut_user,id_tienda) 
 VALUES
-	(101, 'Calle1', 'Region Metropolitana', '12.345.678-1'),
-	(102, 'Calle2', 'Valparaiso', '12.345.678-2'),
-	(103, 'Calle3', 'Biobio', '12.345.678-3'),
-	(104, 'Calle4', 'Araucania', '12.345.678-4'),
-	(105, 'Calle5', 'Maule', '12.345.678-5'),
-	(106, 'Calle6', 'Nuble', '12.345.678-6'),
-	(107, 'Calle7', 'Coquimbo', '12.345.678-7'),
-	(108, 'Calle8', 'OHiggins', '12.345.678-8'),
-	(109, 'Calle9', 'Atacama', '12.345.678-9'),
-	(110, 'Calle10', 'Los Lagos', '15.948.263-1')
+	(101, 'Calle1', 'Region Metropolitana', '12.345.678-1', null),
+	(102, 'Calle2', 'Valparaiso', '12.345.678-2', null),
+	(103, 'Calle3', 'Biobio', '12.345.678-3', null),
+	(104, 'Calle4', 'Araucania', '12.345.678-4', 3),
+	(105, 'Calle5', 'Maule', '12.345.678-5', null),
+	(106, 'Calle6', 'Nuble', '12.345.678-6', null),
+	(107, 'Calle7', 'Coquimbo', '12.345.678-7', null),
+	(108, 'Calle8', 'OHiggins', '12.345.678-8', 1),
+	(109, 'Calle9', 'Atacama', '12.345.678-9', null),
+	(110, 'Calle10', 'Los Lagos', '15.948.263-1', 2)
 ;
