@@ -41,3 +41,19 @@ FROM Producto p
 ORDER BY p.cantidad_de_ventas DESC
 LIMIT 10;
 /*Consulta 7*/
+SELECT
+	u.nombre AS usuario,
+	p.nombre_producto,
+	p.precio_producto,
+	l.cantidad,
+	(p.precio_producto * l.cantidad) AS precio_total,
+	CASE
+		WHEN p.tipo_prod = 1 THEN 'Juego de Mesa'
+		WHEN p.tipo_prod = 0 THEN 'Carta'
+		ELSE 'Otro'
+	END AS tipo_producto
+FROM ListaDeseados l
+JOIN Usuario u ON l.rut_user = u.rut_user
+JOIN Producto p ON l.id_producto = p.id_producto
+WHERE l.rut_user = '12.345.678-1'
+ORDER BY l.id_listaDeseados;
